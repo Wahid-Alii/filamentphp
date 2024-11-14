@@ -18,7 +18,11 @@ class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $navigationGroup = "Employee Management";
+
+    protected static ?string $navigationLabel = 'Employee';
 
     public static function form(Form $form): Form
     {
@@ -37,16 +41,16 @@ class EmployeeResource extends Resource
                 Section::make('User Address')
                     ->description('Put User address details')
                     ->schema([
-                        Forms\Components\TextInput::make('country_id')
+                        Forms\Components\TextInput::make('country')
                             ->required()
                             ->numeric(),
-                        Forms\Components\TextInput::make('state_id')
+                        Forms\Components\TextInput::make('state')
                             ->required()
                             ->numeric(),
-                        Forms\Components\TextInput::make('city_id')
+                        Forms\Components\TextInput::make('city')
                             ->required()
                             ->numeric(),
-                        Forms\Components\TextInput::make('department_id')
+                        Forms\Components\TextInput::make('department')
                             ->required()
                             ->numeric(),
                         Forms\Components\TextInput::make('address')
