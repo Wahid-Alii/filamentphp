@@ -41,19 +41,25 @@ class EmployeeResource extends Resource
                 Section::make('User Address')
                     ->description('Put User address details')
                     ->schema([
-                        Forms\Components\TextInput::make('country')
-                            ->required()
-                            ->numeric(),
-                        Forms\Components\TextInput::make('state')
-                            ->required()
-                            ->numeric(),
-                        Forms\Components\TextInput::make('city')
-                            ->required()
-                            ->numeric(),
-                        Forms\Components\TextInput::make('department')
-                            ->required()
-                            ->numeric(),
-                        Forms\Components\TextInput::make('address')
+                        Forms\Components\Select::make('country_id')
+                            ->relationship(name: 'country', titleAttribute: 'name')
+                            ->searchable()
+                            ->preload()
+                            ->required(),
+                        Forms\Components\Select::make('state_id')
+                            ->relationship(name: 'state', titleAttribute: 'name')
+                            ->searchable()
+                            ->preload()
+                            ->required(),
+                        Forms\Components\Select::make('city_id')
+                            ->relationship(name: 'city', titleAttribute: 'name')
+                            ->searchable()
+                            ->preload()
+                            ->required(),
+                        Forms\Components\Select::make('department_id')
+                            ->relationship(name: 'department', titleAttribute: 'name')
+                            ->searchable()
+                            ->preload()
                             ->required(),
                         Forms\Components\TextInput::make('zip_code')
                             ->required(),
